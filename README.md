@@ -1,5 +1,11 @@
 # IFTTT MCP Server
 
+npx @modelcontextprotocol/inspector \
+ uv \
+ --directory /Users/ram/Github/mcp-ifttt \
+ run \
+ mcp-ifttt
+
 A production-ready [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server that enables Claude to send JSON messages to IFTTT webhooks, unlocking automation workflows across hundreds of services.
 
 ## Features
@@ -46,11 +52,13 @@ cd mcp-ifttt
 2. **Install dependencies:**
 
 Using uv (recommended):
+
 ```bash
 uv sync
 ```
 
 Or using pip:
+
 ```bash
 pip install -e .
 ```
@@ -271,11 +279,11 @@ npx @modelcontextprotocol/inspector http://localhost:3000/sse
 
 ## Environment Variables
 
-| Variable             | Required | Default | Description                                         |
-| -------------------- | -------- | ------- | --------------------------------------------------- |
-| `IFTTT_WEBHOOK_URL`  | Yes      | -       | Your IFTTT webhook URL with key                     |
-| `TRANSPORT`          | No       | `stdio` | Transport mode: `stdio` for local, `http` for remote |
-| `PORT`               | No       | `3000`  | HTTP server port (set automatically by deployment platforms) |
+| Variable            | Required | Default | Description                                                  |
+| ------------------- | -------- | ------- | ------------------------------------------------------------ |
+| `IFTTT_WEBHOOK_URL` | Yes      | -       | Your IFTTT webhook URL with key                              |
+| `TRANSPORT`         | No       | `stdio` | Transport mode: `stdio` for local, `http` for remote         |
+| `PORT`              | No       | `3000`  | HTTP server port (set automatically by deployment platforms) |
 
 ## Error Handling
 
@@ -327,7 +335,7 @@ uv run mcp-ifttt 2>&1 | tee server.log
 
 1. Check your internet connection
 2. Verify IFTTT service status at [status.ifttt.com](https://status.ifttt.com)
-3. Try increasing timeout in [src/mcp_ifttt/__init__.py](src/mcp_ifttt/__init__.py) (line 111)
+3. Try increasing timeout in [src/mcp_ifttt/**init**.py](src/mcp_ifttt/__init__.py) (line 111)
 
 ### Server won't start on deployment
 
